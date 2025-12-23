@@ -22,20 +22,32 @@ GitHub Actions 可以定期执行任务，确保 Koyeb 账户保持活跃。
    | `TG_BOT_TOKEN`   | 你的 Telegram Bot Token。  |
    | `TG_CHAT_ID`     | 你的 Telegram 账号 ID。      |
 
-   **`KOYEB_ACCOUNTS` 格式如下：**
-   
-   ```json
-   [
-     {
-       "email": "your-email@example.com",
-       "password": "your-password"
-     },
-     {
-       "email": "another-email@example.com",
-       "password": "another-password"
-     }
-   ]
-   ```
+KOYEB_ACCOUNTS 格式示例（使用 Token）
+
+```json
+[
+  {
+    "email": "your-email@example.com",
+    "token": "YOUR_KOYEB_TOKEN_HERE"
+  },
+  {
+    "email": "another-email@example.com",
+    "token": "YOUR_KOYEB_TOKEN_HERE"
+  }
+]
+```
+⚠️ 注意事项
+
+- `email` 仅用于显示，不参与登录。
+- 登录验证使用 `token` 字段。
+
+获取 Koyeb Token（简洁版）：
+
+-  登录 [Koyeb 官网](https://www.koyeb.com) → 进入控制台
+-  左下角头像 → **用户设置（User Settings）**
+-  **个人访问令牌（Personal Access Tokens）** → **创建（Create Token）**
+-  设置名称和权限，生成 Token
+-  将生成的 Token 填入 `KOYEB_ACCOUNTS` 对应账户的 `token` 字段
 
 3. **启用 Actions**
 
@@ -64,4 +76,3 @@ GitHub Actions 会在每周日 `00:00 UTC` 运行一次，你可以修改 `.gith
 ## 免责声明
 
 本项目仅用于个人学习和研究，使用者需自行承担使用风险。
-
